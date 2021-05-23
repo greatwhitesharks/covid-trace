@@ -25,7 +25,7 @@ function LocationIndex(props) {
                         <TabPane tab="Buses" key="3">
                             <RegisteredBuses />
                         </TabPane>
-                        <TabPane tab="Traines" key="4">
+                        <TabPane tab="Trains" key="4">
                             <RegisteredTrains />
                         </TabPane>
                     </Tabs>

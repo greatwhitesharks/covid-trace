@@ -1,10 +1,11 @@
 import React, { Component, useEffect, useState } from 'react'
-import { Layout, Card, Tabs } from 'antd';
+import { Layout, Card, Tabs, Button } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 import Navbar from '../UiElements/Navbar/Navbar';
 import BottomFooter from '../UiElements/BottomFooter';
 import CompanyInfoDetails from './CompanyTabs/CompanyInfoDetails';
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { compose } from 'redux'
 import BusInfoDetails from './CompanyTabs/BusInfoDetails';
 import VehicleInfoDetails from './CompanyTabs/VehicleInfoDetails';
@@ -15,6 +16,7 @@ const { Content } = Layout;
 
 
 function CompanyInfo(props) {
+    let history = useHistory();
 
     const [companyDetails, setCompanyDetails] = useState()
     const [selectedType, setSelectedType] = useState('')
@@ -31,12 +33,17 @@ function CompanyInfo(props) {
 
     if (props.user == null) return <Redirect to='/signIn' />
 
+    function goToLocation(val){
+        history.push(`/locations/${val}`);
+    }
+
     return (
         <div style={{ background: "#F2F2F2" }}>
             <Layout style={{ minHeight: "100vh" }}>
                 <Navbar />
                 <Content style={{ padding: '0 50px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <Card style={{ width: '950px', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', marginTop: "20px", height: "598px", position: "sticky" }}>
+                        <Button type="primary" onClick={() => goToLocation(props.history.location.state.org)} style={{ marginBottom:"20px",marginleft:"20px" }}><ArrowLeftOutlined />Back to Locations of {props.history.location.state.org}</Button>
                         <Tabs tabPosition='left'>
                             <TabPane tab="Details" key="1">
                                 {

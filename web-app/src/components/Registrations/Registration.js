@@ -7,7 +7,7 @@ import BusReg from './ReqTypeComponents/BusReg';
 import TrainReg from './ReqTypeComponents/TrainReg';
 import VehicleReg from './ReqTypeComponents/VehicleReg';
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 const { Text } = Typography;
@@ -17,11 +17,13 @@ const { Option } = Select;
 
 function Registration(props) {
 
+    let { UserName } = useParams(null);
+
     const [requestType, setRequestType] = useState('')
 
     const [state, setstate] = useState({
         orgList: [],
-        org: '',
+        org: UserName,
     })
 
     useEffect(() => {
@@ -103,13 +105,23 @@ function Registration(props) {
                         <Row>
                             <Col span={12}><Text>Select Owner</Text></Col>
                             <Col span={12}>
+                                {(UserName)?
+                                <Select defaultValue={UserName} placeholder="Owner" style={{ width: "100%" }} onChange={handleChange}>
+                                {
+                                    state.orgList && state.orgList.map(i => {
+                                        return (<Option value={i.UserName} key={i.orgId}>{i.UserName}</Option>)
+                                    })
+                                }
+                                </Select>
+                                :
                                 <Select placeholder="Owner" style={{ width: "100%" }} onChange={handleChange}>
                                     {
                                         state.orgList && state.orgList.map(i => {
-                                            return (<Option value={i.UserName} key={i.orgId}>{i.Name}</Option>)
+                                            return (<Option value={i.UserName} key={i.orgId}>{i.UserName}</Option>)
                                         })
                                     }
                                 </Select>
+                                }
                             </Col>
 
                         </Row>
@@ -136,7 +148,7 @@ function Registration(props) {
 }
 
 const mapStateToProps = (state) => {
-    //console.log(state)
+    console.log(state)
     return ({
         ...state,
         user: state.auth.auth.user,
