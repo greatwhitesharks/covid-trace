@@ -22,7 +22,7 @@ function Organisation(props) {
     useEffect(() => {
         let tempOrgList = [];
         let temporgList_withLoc = [];
-        (props.orgData && props.orgWithUserData && props.locationReqestData) && (Object.keys(props.orgWithUserData).map(orgIdUsr => {
+        (props.orgData && props.orgWithUserData) && (Object.keys(props.orgWithUserData).map(orgIdUsr => {
             if (props.orgWithUserData[orgIdUsr].phoneNumber === props.user.phoneNumber) {
                 (Object.keys(props.orgData).map(orgId => {
                     if (props.orgData[orgId].UserName === props.orgWithUserData[orgIdUsr].org) {
@@ -34,10 +34,10 @@ function Organisation(props) {
                 }))
             }
         })) 
-        && (Object.keys(props.locationReqestData).map(entryId => {
-            temporgList_withLoc.push(props.locationReqestData[entryId].org)
+        && (props.locationReqestData) && (Object.keys(props.locationReqestData).map(entryId => {
+             temporgList_withLoc.push(props.locationReqestData[entryId].org)
         }))
-
+        console.log(state.orgList)
         setstate({
             orgList: tempOrgList,
             orgList_withLoc: temporgList_withLoc
@@ -62,8 +62,9 @@ function Organisation(props) {
                     <Card title="Organizations" style={{ width: '1150px', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', marginTop: "6.9vh", overflow: "auto", minHeight: "627px", marginBottom: "80px", position: "sticky" }}>
                         <Row>
                             {
-                                (props.orgData && props.orgWithUserData && state.orgList) ? 
-                                    (state.orgList.length) ? state.orgList.map((org) => {
+                                (state.orgList.length) ? 
+                                    (props.orgData && props.orgWithUserData) ? 
+                                    state.orgList.map((org) => {
                                         return (
                                             <Col sm={24} md={12} lg={12} xl={8} justify="space-around" align="middle" key={org.orgId}>
                                                 <Card size="small" title={org.Name} style={{ width: 300, boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', marginBottom: "30px", borderRadius: "8px" }}>
@@ -93,8 +94,12 @@ function Organisation(props) {
                                             </Col>
                                         )
                                 })
-                                    :
-                                    <Row style={{ height: '59vh', width: '1150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                :
+                                <Row style={{ height: '59vh', width: '1150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <Spin size="large" />
+                                </Row>   
+                                :
+                                <Row style={{ height: '59vh', width: '1150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                         <Col sm={24} md={12} lg={12} xl={8} justify="space-around" align="middle">
                                             <Card size="small" title="Welcome !" style={{ width: 300, boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', marginBottom: "30px", borderRadius: "8px" }}>
                                                 <Row justify={"center"}>
@@ -107,11 +112,8 @@ function Organisation(props) {
                                                 </Row>
                                             </Card>
                                         </Col>
-                                    </Row>
-                                :
-                                <Row style={{ height: '59vh', width: '1150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <Spin size="large" />
                                 </Row>
+                                 
 
                             }
 
