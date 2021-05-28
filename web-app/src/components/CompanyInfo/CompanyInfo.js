@@ -1,6 +1,7 @@
 import React, { Component, useEffect, useState } from 'react'
 import { Layout, Card, Tabs, Button } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import { firestoreConnect } from 'react-redux-firebase';
 import Navbar from '../UiElements/Navbar/Navbar';
 import BottomFooter from '../UiElements/BottomFooter';
 import CompanyInfoDetails from './CompanyTabs/CompanyInfoDetails';
@@ -20,16 +21,20 @@ function CompanyInfo(props) {
 
     const [companyDetails, setCompanyDetails] = useState()
     const [selectedType, setSelectedType] = useState('')
+    const [orgName, setOrgName] = useState('')
     let component = null;
 
     useEffect(() => {
-        console.log(props.user)
-        console.log(props.history.location.state)
-        //console.log(props.history.location.state)
         props.history.location.state && setCompanyDetails({
             ...props.history.location.state
-        })
-    }, [props.history.location.state.location_type])
+        })||
+        (props.orgData) && (Object.keys(props.orgData).map(orgId => {
+            console.log(props.orgData[orgId].UserName)
+            if (props.orgData[orgId].UserName === props.history.location.state.org){
+                setOrgName(props.orgData[orgId].Name)
+            }
+        }))
+    }, [props.history.location.state.location_type, props.orgData])
 
     if (props.user == null) return <Redirect to='/signIn' />
 
@@ -43,7 +48,7 @@ function CompanyInfo(props) {
                 <Navbar />
                 <Content style={{ padding: '0 50px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <Card style={{ width: '950px', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', marginTop: "20px", height: "598px", position: "sticky" }}>
-                        <Button type="primary" onClick={() => goToLocation(props.history.location.state.org)} style={{ marginBottom:"20px",marginleft:"20px" }}><ArrowLeftOutlined />Back to Locations of {props.history.location.state.org}</Button>
+                        <Button type="primary" onClick={() => goToLocation(props.history.location.state.org)} style={{ marginBottom:"20px",marginleft:"20px" }}><ArrowLeftOutlined />Back to Locations of {orgName} ({props.history.location.state.org})</Button>
                         <Tabs tabPosition='left'>
                             <TabPane tab="Details" key="1">
                                 {
@@ -76,11 +81,15 @@ const mapStateToProps = (state) => {
     console.log(state)
     return ({
         ...state,
-        user: state.auth.auth.user
+        user: state.auth.auth.user,
+        orgData: state.firestore.data.sc_org
     })
 }
 
 export default compose(
+    firestoreConnect([
+        { collection: 'sc_org' },
+    ]), 
     connect(mapStateToProps),
 )(CompanyInfo)
 
