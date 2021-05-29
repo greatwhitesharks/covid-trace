@@ -86,30 +86,38 @@ function VehicleReg(props) {
 
     return (
         <div>
-            <Card title="Fill these Details" style={{ width: '674px', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', marginTop: "20px", overflow: "auto", height: "260px", position: "sticky" }}>
+            <Card title="Fill these Details" style={{ width: '674px', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', marginTop: "20px", marginBottom: "10px", overflow: "auto", minHeight: "260px", position: "sticky" }}>
                 <form onSubmit={submitDetails}>
                     <Row>
-                        <Col span={24}>
+                        <Col span={24}> Name
                             <Input placeholder="Name" name="name" onChange={handleChange} required/>
                         </Col>
                     </Row>
                     <Row justify="space-between" >
-                        <Col sm={24} md={13}  >
+                        <Col sm={24} md={13}  > Contact Number
                             <Input addonBefore="+94" placeholder="Contact No" name="contact_number" style={{ marginTop: '12px' }} onChange={handleChange} required/>
                         </Col>
                         <Col sm={24} md={1}  >
                         </Col>
-                        <Col sm={24} md={10} >
+                        <Col sm={24} md={10} > Vehicle Number
                             <Input placeholder="Vehical No" name="vehicle_no" style={{ marginTop: '12px' }} onChange={handleChange} required/>
                         </Col>
                     </Row>
                     <Row justify="space-between" align="middle">
-                        <Col sm={24} md={10}  >
-                            <Checkbox onChange={handleChange} name="isCorrect" style={{ marginTop: "35px" }} >Confirm Your Details Is Correct</Checkbox>
+                        <Col sm={24} md={15}  >
+                            <Checkbox onChange={handleChange} name="isCorrect" style={{ marginTop: "10px" }} >I hereby claim that the above information is true</Checkbox>
                         </Col>
-                        <Col sm={24} md={10}   >
-                            <Button type="primary" style={{ marginTop: "35px", width: "100%" }} htmlType="submit">Submit</Button>
-                        </Col>
+                    </Row>
+                    <Row style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+                        <Button
+                            aria-label="Please click to submit details"
+                            type="primary"
+                            style={{ marginRight: '20px',width:'140px' }}
+                            //onClick={signIn}
+                            htmlType="submit"
+                            >
+                            Submit
+                        </Button>
                     </Row>
                 </form>
             </Card>
