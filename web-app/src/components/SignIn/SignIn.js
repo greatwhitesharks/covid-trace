@@ -1,6 +1,6 @@
 import { Button, Card, Input, Layout,Spin,Alert,Row } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, connectAdvanced } from 'react-redux';
 import * as actions from '../../store/actions';
 import BottomFooter from '../UiElements/BottomFooter';
 import Navbar from '../UiElements/Navbar/Navbar';
@@ -10,7 +10,6 @@ import {Link} from "react-router-dom";
 const { Content } = Layout;
 
 function SignIn(props) {
-
   const [contactNo, setContactNo] = useState('');
   const [password, setPassword] = useState('');
   let history = useHistory();
@@ -34,12 +33,11 @@ function SignIn(props) {
     props.logIn({ phoneNumber, password });
   };
 
-  console.log(props.error);
 
   return (
     <div style={{ background: '#F2F2F2' }}>
       <Layout style={{ minHeight: '100vh' }}>
-        <Navbar />
+        <Navbar direct="SignUp" dir_name="Register"/>
         <Content
           style={{
             padding: '0 50px',
@@ -124,7 +122,8 @@ const mapStateToProps = ({ auth }) => ({
   loading: auth.signin.loading,
   error: auth.signin.error,
   user: auth.auth.user
-});
+}
+);
 
 const mapDispatchToProps = {
   logIn: actions.signIn,
