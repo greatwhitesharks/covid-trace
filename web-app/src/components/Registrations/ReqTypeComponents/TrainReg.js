@@ -94,28 +94,34 @@ function TrainReg(props) {
             <form onSubmit={submitDetails}>
                 <Row>
                     <Col span={24}> Train Name
-                        <Input placeholder="Train Name" name="train_name" style= {{marginBottom: "10px", marginTop: "10px" }} onChange={handleChange} required/>
+                        <Input 
+                        aria-label="Enter the train number"
+                        placeholder="Train Name" name="train_name" style= {{marginBottom: "10px", marginTop: "10px" }} onChange={handleChange} required/>
                     </Col>
                 </Row>
                 <Row justify="space-between" >
                     <Col sm={24} md={13}  > Train Number
-                        <Input placeholder="Train No" name="train_no" style={{  marginBottom: "10px", marginTop: "10px"  }} onChange={handleChange} required/>
+                        <Input 
+                        aria-label="Enter train number"
+                        placeholder="Train No" name="train_no" style={{  marginBottom: "10px", marginTop: "10px"  }} onChange={handleChange} required/>
                     </Col>
                     <Col sm={24} md={10} > carriage Number
-                        <Input placeholder="Carriage No" name="carriage_no" style={{ marginBottom: "10px", marginTop: "10px"  }} onChange={handleChange} required/>
+                        <Input 
+                        aria-label="Enter carriage number"
+                        placeholder="Carriage No" name="carriage_no" style={{ marginBottom: "10px", marginTop: "10px"  }} onChange={handleChange} required/>
                     </Col>
                 </Row>
                 <Row justify="space-between" align="middle">
-                        <Col sm={24} md={15}  >
-                            <Checkbox onChange={handleChange} name="isCorrect" style={{ marginTop: "10px" }} >I hereby claim that the above information is true</Checkbox>
+                        <Col sm={24} md={25}  >
+                            <Checkbox 
+                            aria-label="Click here to declare that the above information is true and correct to the best of your knowledge"
+                            onChange={handleChange} name="isCorrect" style={{ marginTop: "10px" }} >I hereby declare that the above information is true and correct to the best of my knowledge.</Checkbox>
                         </Col>
                     </Row>
                     <Row style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
                         <Button
-                            aria-label="Please click to submit details"
                             type="primary"
                             style={{ marginRight: '20px',width:'140px' }}
-                            //onClick={signIn}
                             htmlType="submit"
                             >
                             Submit
