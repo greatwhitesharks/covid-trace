@@ -47,41 +47,46 @@ function SignIn(props) {
             justifyContent: 'center',
           }}
         >
+          <div class="col d-flex justify-content-center">
+
+
           <Card
-            title="Welcome"
+            title="Welcome" 
             style={{
               width: 475,
               boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-              marginTop: '131px',
+              marginTop: '90px',
               minheight: '250px',
-              maxHeight: '265px',
+              maxHeight: '400px',
+              textAlign: 'center'
             }}
-          >
-            
+          >   
               <form onSubmit={signIn}>
                 <Row>
+                  Phone number
                   <Input
                     addonBefore="+94"
                     defaultValue=""
                     placeholder="Contact No"
-                    style={{ marginBottom: '10px' }}
+                    style={{ marginBottom: '10px', paddingTop: '5px' }}
                     onChange={onChangePhoneNumber}
                     value={contactNo}
                     required
                   />
                 </Row>
                 <Row>
+                  Password
                   <Input
                     defaultValue=""
                     placeholder="Password"
                     type="password"
-                    style={{ marginBottom: '20px' }}
+                    style={{ marginBottom: '10px', paddingTop: '5px' }}
                     onChange={onChangePassword}
                     value={password}
                     required
                   />
                 </Row>
-                <Row style={{ display: 'flex', justifyContent: 'center' }}>
+                <Row style={{ display: 'flex', justifyContent: 'center', paddingBottom: '10px' }}>
                   <Button
                       type="primary"
                       style={{ marginRight: '20px',width:'140px' }}
@@ -89,15 +94,11 @@ function SignIn(props) {
                       htmlType="submit"
                     >
                       Sign In
-                  
                   </Button>
+                </Row>
+                <Row style={{ display: 'flex', justifyContent: 'center' }}>
                   <Link to="/signUp">
-                    <Button
-                      type="primary"
-                      style={{width:'140px' }}
-                    >
-                      Sign Up
-                  </Button>
+                    Haven't Sign Up yet? Click here to sign up
                   </Link>
                 </Row>
               </form>
@@ -110,6 +111,7 @@ function SignIn(props) {
               {props.error ? <Alert message={props.error} type="warning" showIcon closable style={{marginTop:'6px',width:'100%'}}/> : null}
               </Row>
           </Card>
+          </div>
         </Content>
         <BottomFooter />
       </Layout>
