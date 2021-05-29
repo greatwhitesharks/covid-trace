@@ -18,7 +18,7 @@ function Organisation(props) {
 
     const [state, setstate] = useState({
         orgList: [],
-        orgList_withLoc: [],
+        orgList_withLoc: []
     })
 
     useEffect(() => {
@@ -40,6 +40,7 @@ function Organisation(props) {
         && (props.locationReqestData) && (Object.keys(props.locationReqestData).map(entryId => {
              temporgList_withLoc.push(props.locationReqestData[entryId].org)
         }))
+
 
         let timeout;
         if (props.orgData == null) {
@@ -120,7 +121,6 @@ function Organisation(props) {
                                  <Row style={{ height: '59vh', width: '1150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                      <Spin size="large" />
                                  </Row> 
-
                             }
 
                         </Row>
