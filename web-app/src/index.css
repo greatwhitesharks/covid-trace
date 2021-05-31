@@ -26,3 +26,19 @@ code {
     display: none;
   }
 }
+a.logo-link{
+  display: block;
+  height:40px;
+  width:150px;
+}
+a.logo-link:focus{
+  outline: 1px gray dotted;
+}
+a.unstyled-link{
+  text-decoration: none;
+  color: inherit;
+  line-height: 0px;
+}
+a.unstyled-link:active{
+  color: inherit;
+}
