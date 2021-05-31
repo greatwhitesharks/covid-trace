@@ -28,6 +28,7 @@ function Registration(props) {
   useEffect(() => {
     let tempOrgList = [];
     let tempusernames = [];
+    props.user &&
     props.orgData &&
       props.orgWithUserData &&
       Object.keys(props.orgWithUserData).map((orgIdUsr) => {
@@ -111,7 +112,7 @@ function Registration(props) {
     }
   }
 
-  if (props.user == null) return <Redirect to="signIn" />;
+  if (props.user == null) return <Redirect to="/signIn" />;
 
   return (
     <div style={{ background: "#F2F2F2" }}>
