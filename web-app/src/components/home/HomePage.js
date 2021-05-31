@@ -95,15 +95,15 @@ function HomePage(props) {
           </Col>
           <Col xs={24} md={24} lg={12} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
             <div className="smallPoints">
-              <Title level={3} className="smallPointTitle">Protect Yourself</Title>
+              <Title level={3} className="smallPointTitle">&ensp;Protect Yourself</Title>
               <Text className='smallPointContent'>Get notified immediately if you have been exposed to COVID-19 through close contact. Faster information means timely care for you!</Text>
             </div>
             <div className="smallPoints">
-              <Title level={3} className="smallPointTitle">Protect our loved ones</Title>
+              <Title level={3} className="smallPointTitle">&ensp;Protect our loved ones</Title>
               <Text className='smallPointContent'>Getting notified earlier enables you to protect your loved ones, reducing the spread of COVID-19.</Text>
             </div>
             <div className="smallPoints">
-              <Title level={3} className="smallPointTitle">Protect our community</Title>
+              <Title level={3} className="smallPointTitle">&ensp;Protect our community</Title>
               <Text className='smallPointContent'>Ease the load on our front liners, and support one another to live life safely and comfortably. Together, we can overcome COVID-19.</Text>
             </div>
           </Col>
@@ -184,7 +184,7 @@ function HomePage(props) {
         <Row>
           <Col xs={24} md={24} lg={12} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
             <div className="smallPoints">
-              <Title level={3} className="smallPointTitle">Do not store your Data on Cloud  </Title>
+              <Title level={3} className="smallPointTitle">&ensp;Do not store your Data on Cloud  </Title>
               <Text className='smallPointContent'>Your personal data will only be stored on your device and not on our cloud. Unless you test positive to COVID-19, we will not access your data in any manner.</Text>
             </div>
           </Col>
@@ -198,7 +198,7 @@ function HomePage(props) {
           </Row>
           <Row>
             <Col xs={24} md={24} lg={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
-              <Text style={{ fontSize: '20px', padding: '0px 10px 0px 10px', textAlign: "center", marginBottom: '10px' }}>Safe In is an open source project .You can contribute to this project via <a href='https://github.com/scorelab/covid-trace'>github</a></Text>
+              <Text style={{ fontSize: '17px', padding: '0px 10px 0px 10px', textAlign: "center", marginBottom: '10px' }}>Safe In is an open source project .You can contribute to this project via <a href='https://github.com/scorelab/covid-trace'>github</a></Text>
             </Col>
             <Col xs={24} md={24} lg={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <img src={githubLogo} width='200px' className="githublogo" />
