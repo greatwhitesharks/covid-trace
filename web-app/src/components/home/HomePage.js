@@ -83,7 +83,7 @@ function HomePage(props) {
         <Row>
           <div className="whatIsSafeIn">
             <Title level={2} style={{ textAlign: 'center', marginTop: '20px' }}>What is Safe In ?  </Title>
-            <Text style={{ textAlign: 'center', maxWidth: '1340px', fontSize: '26px', padding: '0px 20px 0px 20px' }}>Safe In is Voluntary Drive to Expose Potential Covid - 19 Spread.It helps contact tracers identify and get in touch quickly if you had possible exposure to Covid -19 </Text>
+            <Text style={{ textAlign: 'center', maxWidth: '1340px', fontSize: '26px', padding: '0px 20px 0px 20px' }}>Safe In is voluntary drive to expose potential COVID-19 Spread. It enables contact tracers to identify and get in touch with you quickly and effieciently in case of a exposure to COVID-19 </Text>
           </div>
         </Row>
         <Row className='center'>
@@ -95,16 +95,16 @@ function HomePage(props) {
           </Col>
           <Col xs={24} md={24} lg={12} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
             <div className="smallPoints">
-              <Title level={3} className="smallPointTitle">*Protect Yourself  </Title>
-              <Text className='smallPointContent'>Get notified quickly if you've been exposed to COVID-19, through close contact. Faster information means timely care for you.</Text>
+              <Title level={3} className="smallPointTitle">Protect Yourself</Title>
+              <Text className='smallPointContent'>Get notified immediately if you have been exposed to COVID-19 through close contact. Faster information means timely care for you!</Text>
             </div>
             <div className="smallPoints">
-              <Title level={3} className="smallPointTitle">* Protect our loved ones  </Title>
-              <Text className='smallPointContent'>Being notified earlier also means we can better protect those around us, reducing the spread of COVID-19.</Text>
+              <Title level={3} className="smallPointTitle">Protect our loved ones</Title>
+              <Text className='smallPointContent'>Getting notified earlier enables you to protect your loved ones, reducing the spread of COVID-19.</Text>
             </div>
             <div className="smallPoints">
-              <Title level={3} className="smallPointTitle">* Protect our community  </Title>
-              <Text className='smallPointContent'>Ease the load on our frontliners, and support one another to live life normally and safely. Together, we can overcome COVID-19.</Text>
+              <Title level={3} className="smallPointTitle">Protect our community</Title>
+              <Text className='smallPointContent'>Ease the load on our front liners, and support one another to live life safely and comfortably. Together, we can overcome COVID-19.</Text>
             </div>
           </Col>
         </Row>
@@ -139,7 +139,7 @@ function HomePage(props) {
           </Col>
         </Row>
         <Row className='center'>
-          <Title level={2} style={{ textAlign: 'center', marginTop: '20px' }}>How Safe In Covid Tracker Works</Title>
+          <Title level={2} style={{ textAlign: 'center', marginTop: '20px' }}>How the Safe In COVID-19 Tracker Works</Title>
         </Row>
         <Row>
           <Col xs={24} md={12} lg={6} style={{ display: 'flex', justifyContent: "center" }}>
@@ -166,30 +166,26 @@ function HomePage(props) {
         <Row>
           <div className="benefits">
             <Row className="center">
-              <Title level={3} style={{ textAlign: 'center' }}>How Safe In COVID Tracker Benefits You </Title>
+              <Title level={3} style={{ textAlign: 'center' }}>How the Safe In COVID-19 Tracker Benefits You </Title>
             </Row>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>
-              <Text className='benefitsPoints'>Get Notified If You are exposed to persons tested positive for Covid 19</Text>
-              <Text className='benefitsPoints'>Provide Your Details anywhere you visit effieciently and Contamination free</Text>
-              <Text className='benefitsPoints'>Save your data only in the registration you can use these data anywhere you visit</Text>
-              <Text className='benefitsPoints'>QR Option to instant check in and check out</Text>
+              <Text className='benefitsPoints'>Get notified If You have been exposed to a COVID-19 patient</Text>
+              <Text className='benefitsPoints'>Update your location effieciently and free of contamination</Text>
+              <Text className='benefitsPoints'>Save your details during the registration process to easily update your data everywhere you go</Text>
+              <Text className='benefitsPoints'>Use the QR Option to instantly check in and check out</Text>
             </div>
             <div>
             </div>
           </div>
         </Row>
         <Row className="center" style={{ marginTop: '30px' }}>
-          <Title level={3} style={{ textAlign: 'center' }}>We have focused more about the Privacy and Security Of your Data</Title>
+          <Title level={3} style={{ textAlign: 'center' }}>We care about your privacy and security</Title>
         </Row>
         <Row>
           <Col xs={24} md={24} lg={12} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
             <div className="smallPoints">
-              <Title level={3} className="smallPointTitle">* Do not store your Data on Cloud  </Title>
-              <Text className='smallPointContent'>We do not store your personal data on the cloud, Your personal data will be stored on your phone.</Text>
-            </div>
-            <div className="smallPoints">
-              <Title level={3} className="smallPointTitle">* We get your data only you are positive</Title>
-              <Text className='smallPointContent'>We do not store your personal data on the cloud, Your personal data will be stored on your phone.</Text>
+              <Title level={3} className="smallPointTitle">Do not store your Data on Cloud  </Title>
+              <Text className='smallPointContent'>Your personal data will only be stored on your device and not on our cloud. Unless you test positive to COVID-19, we will not access your data in any manner.</Text>
             </div>
           </Col>
           <Col xs={24} md={24} lg={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -202,7 +198,7 @@ function HomePage(props) {
           </Row>
           <Row>
             <Col xs={24} md={24} lg={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
-              <Text style={{ fontSize: '20px', padding: '0px 10px 0px 10px', textAlign: "center", marginBottom: '10px' }}>Safe In is a open source project .You can contribute to this project via github</Text>
+              <Text style={{ fontSize: '20px', padding: '0px 10px 0px 10px', textAlign: "center", marginBottom: '10px' }}>Safe In is an open source project .You can contribute to this project via <a href='https://github.com/scorelab/covid-trace'>github</a></Text>
             </Col>
             <Col xs={24} md={24} lg={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <img src={githubLogo} width='200px' className="githublogo" />
