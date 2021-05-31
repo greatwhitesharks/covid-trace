@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import cities from './Cities'
-import { Card, Divider, Row, Col, Input, Select, Checkbox, Button, message } from 'antd';
+import { Card, Divider, Row, Col, Input, Select, Checkbox, Button, message, Typography } from 'antd';
 import { registerBusiness } from '../../../store/actions/registrationActions';
 import { connect } from 'react-redux'
 import { useHistory } from "react-router-dom";
 const { Option } = Select;
 
+
+const { Title } = Typography;
 function BusinessReg(props) {
 
     let history = useHistory();
@@ -137,7 +139,7 @@ function BusinessReg(props) {
     };
 
     return (
-            <Card title="Business Location Details" style={{ width: '100%', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', marginTop: "20px", overflow: "auto", minHeight: "58vh", position: "sticky", marginBottom: '20px' }}>
+            <Card title={<Title level={5}>Business Location Details</Title>}  style={{ width: '100%', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', marginTop: "20px", overflow: "auto", minHeight: "58vh", position: "sticky", marginBottom: '20px' }}>
                 <form onSubmit={submitDetails}>
                     <Divider orientation="left">Basic Details</Divider>
                     <Row>
@@ -151,7 +153,7 @@ function BusinessReg(props) {
                         <Col sm={24} md={13}  > Contact Number
                             <Input 
                             aria-label="Enter your contact number"
-                            addonBefore="+94" placeholder="Contact No" style={{ marginBottom: "5px", marginTop: "5px" }} name="contact_no" value={state.contact_no} onChange={handleChangeInputs} required />
+                            addonBefore="+94" type="tel" maxLength="9" placeholder="Contact No" style={{ marginBottom: "5px", marginTop: "5px" }} name="contact_no" value={state.contact_no} onChange={handleChangeInputs} required />
                         </Col>
                         <Col sm={24} md={1}  >
                         </Col>
@@ -208,20 +210,20 @@ function BusinessReg(props) {
                         <Col sm={24} md={7}  > Postal Code
                             <Input 
                             aria-label="Enter the postal code"
-                            placeholder="Postal Code" name="postal_code" onChange={handleChangeInputs} style={{ marginBottom: "5px", marginTop: "5px" }}/>
+                            placeholder="Postal Code" name="postal_code"  onChange={handleChangeInputs} style={{ marginBottom: "5px", marginTop: "5px" }}/>
                         </Col>
                         <Col sm={24} md={1}  >
                         </Col>
                         <Col sm={24} md={7} > Floor Number
                             <Input 
                             aria-label="Enter the floor number"
-                            placeholder="Floor No" name="floor_no" onChange={handleChangeInputs} style={{ marginBottom: "5px", marginTop: "5px" }} />
+                            placeholder="Floor No" name="floor_no" type="number" min="0" onChange={handleChangeInputs} style={{ marginBottom: "5px", marginTop: "5px" }} />
                         </Col>
                         <Col sm={24} md={1}></Col>
                         <Col sm={24} md={7} > Unit Number
                             <Input 
                             aria-label="Enter the unit number"
-                            placeholder="Unit No" onChange={handleChangeInputs} name="unit_no" style={{ marginBottom: "5px", marginTop: "5px" }} />
+                            placeholder="Unit No" onChange={handleChangeInputs} type="number" min="0" name="unit_no" style={{ marginBottom: "5px", marginTop: "5px" }} />
                         </Col>
                     </Row>
                     <Row>
@@ -236,7 +238,7 @@ function BusinessReg(props) {
                         <Col span={24}> Facebook page URL
                             <Input 
                             aria-label="Enter the facebook page URL"
-                            placeholder="FB Page URL" name="fb_url" onChange={handleChangeInputs} style={{ marginBottom: "5px", marginTop: "5px" }} />
+                            placeholder="FB Page URL" name="fb_url" type="url" onChange={handleChangeInputs} style={{ marginBottom: "5px", marginTop: "5px" }} />
                         </Col>
                     </Row>
                     <Row>

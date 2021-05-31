@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Divider, Row, Col, Input, Checkbox, Button, message } from 'antd';
+import { Card, Divider, Row, Col, Input, Checkbox, Button, message, Typography } from 'antd';
 import { registerVehicle } from '../../../store/actions/registrationActions';
 import { connect } from 'react-redux'
 import { useHistory } from "react-router-dom";
+
+const { Title } = Typography;
 
 function VehicleReg(props) {
 
@@ -85,7 +87,7 @@ function VehicleReg(props) {
     };
 
     return (
-            <Card title="Private Vehicle Details" style={{ width: '100%', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', marginTop: "20px", marginBottom: "10px", overflow: "auto", minHeight: "260px", position: "sticky" }}>
+            <Card title={<Title level={5}>Private Vehicle Details</Title>}  style={{ width: '100%', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', marginTop: "20px", marginBottom: "10px", overflow: "auto", minHeight: "260px", position: "sticky" }}>
                 <form onSubmit={submitDetails}>
                     <Divider orientation="left">Vehicle Details</Divider>
                     <Row>
@@ -105,7 +107,7 @@ function VehicleReg(props) {
                         <Col sm={24} md={10}  > Contact Number
                             <Input 
                             aria-label="Enter your contact number"
-                            addonBefore="+94" placeholder="Contact No" name="contact_number" style={{marginBottom: "10px", marginTop: "10px"  }} onChange={handleChange} required/>
+                            addonBefore="+94" placeholder="Contact No" type="tel" maxLength="9" name="contact_number" style={{marginBottom: "10px", marginTop: "10px"  }} onChange={handleChange} required/>
                         </Col>
                     </Row>
                     <Row justify="space-between" align="middle">

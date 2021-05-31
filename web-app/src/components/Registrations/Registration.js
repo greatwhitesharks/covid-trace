@@ -29,25 +29,25 @@ function Registration(props) {
     let tempOrgList = [];
     let tempusernames = [];
     props.user &&
-      props.orgData &&
-        props.orgWithUserData &&
-        Object.keys(props.orgWithUserData).map((orgIdUsr) => {
-          if (
-            props.orgWithUserData[orgIdUsr].phoneNumber === props.user.phoneNumber
-          ) {
-            Object.keys(props.orgData).map((orgId) => {
-              if (
-                props.orgData[orgId].UserName ===
-                props.orgWithUserData[orgIdUsr].org
-              ) {
-                tempOrgList.push({
-                  ...props.orgData[orgId],
-                  orgId,
-                });
-                tempusernames.push(props.orgData[orgId].UserName);
-              }
-            });
-          }
+    props.orgData &&
+      props.orgWithUserData &&
+      Object.keys(props.orgWithUserData).map((orgIdUsr) => {
+        if (
+          props.orgWithUserData[orgIdUsr].phoneNumber === props.user.phoneNumber
+        ) {
+          Object.keys(props.orgData).map((orgId) => {
+            if (
+              props.orgData[orgId].UserName ===
+              props.orgWithUserData[orgIdUsr].org
+            ) {
+              tempOrgList.push({
+                ...props.orgData[orgId],
+                orgId,
+              });
+              tempusernames.push(props.orgData[orgId].UserName);
+            }
+          });
+        }
       });
 
     setstate({
